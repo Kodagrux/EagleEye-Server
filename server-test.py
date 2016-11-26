@@ -2,4 +2,6 @@
 
 from firebase import firebase
 
-print("hello")
+firebase = firebase.FirebaseApplication('https://eagleeye-dfbc4.firebaseio.com', None)
+result = firebase.get('/ee-sub-test', None)
+print(result)
