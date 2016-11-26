@@ -36,7 +36,7 @@ radio.enableAckPayload() #sso you know you get the packages
 
 radio.openReadingPipe(1, pipes[1]) #Picks a pipe
 radio.printDetails() #Prints it all
-radio.tartListening() #Starts listening
+radio.startListening() #Starts listening
 
 while True:
 	while not radio.available(0):
@@ -54,3 +54,17 @@ while True:
 			string += chr(n)
 
 	print("Our recived message decodes to: {}".format(string))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
