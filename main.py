@@ -16,10 +16,9 @@ from lib_nrf24 import NRF24
 
 
 GPIO.setmode(GPIO.BCM)
-print("HELLO!")
 
 
-pipes = [[0xE8, 0xe8, 0xF0, 0xF0, 0xE1], [ 0xF0, 0xF0, 0xF0, 0xF0, 0xE1]]
+pipes = [[0xE8, 0xE8, 0xF0, 0xF0, 0xE1], [ 0xF0, 0xF0, 0xF0, 0xF0, 0xE1]]
 
 radio = NRF24(GPIO, spidev.SpiDev()) #Creates instans of Radio
 radio.begin(0, 17) #Defines the pins to be used
@@ -54,17 +53,3 @@ while True:
 			string += chr(n)
 
 	print("Our recived message decodes to: {}".format(string))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
