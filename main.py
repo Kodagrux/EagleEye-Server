@@ -36,10 +36,15 @@ radio.enableAckPayload() #sso you know you get the packages
 radio.openWritingPipe(pipes[0]) #Picks a pipe to read from
 radio.openReadingPipe(1, pipes[1]) #Picks a pipe to listen from
 radio.printDetails() #Prints it all
+
+
+#Get into standby-mode
+radio.startListening()
+radio.stopListening()
 #radio.startListening() #Starts listening
 
-time.sleep(1)
-message = list("DISARM")
+time.sleep(2)
+message = list("ARM")
 while len(message) < 32:
 	message.append(0) #Fill the rest of the message with zeros
 
