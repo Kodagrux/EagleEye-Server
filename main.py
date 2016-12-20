@@ -38,14 +38,17 @@ radio.openReadingPipe(1, pipes[1]) #Picks a pipe to listen from
 radio.printDetails() #Prints it all
 #radio.startListening() #Starts listening
 
-message = list("GETSTRING")
+message = list("ARM")
 while len(message) < 32:
 	message.append(0) #Fill the rest of the message with zeros
 
+
+start = time.time()
+radio.write(message)
+print("Sent the message: {}".format(message))
+
 while True:
-	start = time.time()
-	radio.write(message)
-	print("Sent the message: {}".format(message))
+
 	radio.startListening()
 
 
@@ -57,9 +60,9 @@ while True:
 
 	recivedMessage = []
 	radio.read(recivedMessage, radio.getDynamicPayloadSize())
-	print("Recived: {}".format(recivedMessage)) #The message in Unicode
+	#print("Recived: {}".format(recivedMessage)) #The message in Unicode
 
-	print("Translating our recived message into unicode characters...")
+	#print("Translating our recived message into unicode characters...")
 	string = ""
 
 	for n in recivedMessage:
