@@ -54,9 +54,9 @@ while True:
 
 	while not radio.available(0):
 		time.sleep(1/100) #sleep until message is recived
-		if time.time() - start > 4:
-			print("Timed out.")
-			break
+		#if time.time() - start > 4:
+			#print("Timed out.")
+			#break
 
 	recivedMessage = []
 	radio.read(recivedMessage, radio.getDynamicPayloadSize())
