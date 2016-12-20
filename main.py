@@ -43,20 +43,22 @@ while len(message) < 32:
 	message.append(0) #Fill the rest of the message with zeros
 
 
-start = time.time()
-radio.write(message)
-print("Sent the message: {}".format(message))
+for i in range(5):
+	radio.write(message)
+	print("Sent the message: {}".format(message))
+	time.sleep(1)
+	
 
 while True:
-
+	start = time.time()
 	radio.startListening()
 
 
 	while not radio.available(0):
 		time.sleep(1/100) #sleep until message is recived
-		#if time.time() - start > 4:
-			#print("Timed out.")
-			#break
+		if time.time() - start > 2:
+			print("Timed out.")
+			break
 
 	recivedMessage = []
 	radio.read(recivedMessage, radio.getDynamicPayloadSize())
