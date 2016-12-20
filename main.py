@@ -38,15 +38,14 @@ radio.openReadingPipe(1, pipes[1]) #Picks a pipe to listen from
 radio.printDetails() #Prints it all
 #radio.startListening() #Starts listening
 
-message = list("DISARM")
+message = list("ARM")
 while len(message) < 32:
 	message.append(0) #Fill the rest of the message with zeros
 
 
-for i in range(5):
-	radio.write(message)
-	print("Sent the message: {}".format(message))
-	time.sleep(1)
+radio.write(message)
+print("Sent the message: {}".format(message))
+
 
 
 while True:
