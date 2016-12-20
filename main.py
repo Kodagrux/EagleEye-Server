@@ -33,13 +33,27 @@ radio.setAutoAck(True) #Turing on auto ack
 radio.enableDynamicPayloads() #Different package sizes
 radio.enableAckPayload() #sso you know you get the packages
 
-radio.openReadingPipe(1, pipes[1]) #Picks a pipe
+radio.openWritingPipe(pipes[0]) #Picks a pipe to read from
+radio.openReadingPipe(1, pipes[1]) #Picks a pipe to listen from
 radio.printDetails() #Prints it all
-radio.startListening() #Starts listening
+#radio.startListening() #Starts listening
+
+message = list("GETSTRING")
+while len(message) < 32:
+	message.append(0) #Fill the rest of the message with zeros
 
 while True:
+	start = time.time()
+	radio.write(message)
+	print("Sent the message: {}".format(message))
+	radio.startListening()
+
+
 	while not radio.available(0):
 		time.sleep(1/100) #sleep until message is recived
+		if time.time() - start > 2:
+			print("Timed out.")
+			break
 
 	recivedMessage = []
 	radio.read(recivedMessage, radio.getDynamicPayloadSize())
@@ -53,3 +67,6 @@ while True:
 			string += chr(n)
 
 	print("Our recived message decodes to: {}".format(string))
+
+	radio.stopListening()
+	time.sleep(1)
