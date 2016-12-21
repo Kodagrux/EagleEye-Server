@@ -3,9 +3,9 @@
  * Author: --
  */
 
-import nrf from "nrf";
+// import nrf from "nrf";
 
 //
 // HOW TO
-// SEE https://github.com/natevw/node-nrf 
+// SEE https://github.com/natevw/node-nrf
 //
