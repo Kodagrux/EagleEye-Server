@@ -24,8 +24,8 @@
             "double"
         ],
         "semi": [
-            "warn",
-            "never"
+            "error",
+            "always"
         ],
         "no-unused-vars": [
             "warn", { "vars": "all", "args": "after-used" }
