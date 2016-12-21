@@ -9,6 +9,7 @@
     "scripts": {
         "postversion": "git push && git push --tags",
         "watch": "ls",
+        "test": "yarn run prepublish && node dist/eagle-eye-server.js",
         "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir dist",
         "prepublish": "npm run build:commonjs"
     },
