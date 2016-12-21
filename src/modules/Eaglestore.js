@@ -29,7 +29,7 @@ export default class Eaglestore{
     }
 
 
-    newEagleEvent(type, message, sensor, level=null){
+    newEagleEvent(type=null, message=null, sensor=null, level=null){
 
         // If no user is signed in
         if (!this.user()) {
