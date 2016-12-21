@@ -29,7 +29,7 @@ export default class Eaglestore{
     }
 
 
-    newEagleEvent(type="motion", message, sensor, level=null){
+    newEagleEvent(type, message, sensor, level=null){
 
         // If no user is signed in
         if (!this.user()) {
@@ -83,6 +83,28 @@ export default class Eaglestore{
         .catch(()=>{
             console.log("Could not sign out?!!?!");
         });
+    }
+
+    /**
+     * Subscribe to changes in the eagle arm settings. If the state is changed
+     * from an app either to arm or disarm state callback is called with the
+     * new state
+     */
+    subscribeArmState(callback){
+
+        // Check if eagle is signed in
+        if (this.user()) {
+            const eagleId = "UH123";
+
+            // Bind a reference to this eagle online
+            let eagleRef = firebase.database().ref("eagles/"+eagleId+"/armed");
+            eagleRef.on("value", (snapshot)=>{
+                callback(snapshot);
+            });
+
+        }else{
+            return false;
+        }
     }
 
 }
