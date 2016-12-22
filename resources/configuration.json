@@ -1,10 +1,10 @@
 {
-    "user_credentials": {
-        "usr": "test@test.se",
-        "pwd": "test123"
+    "eagle": {
+        "id": null,
+        "name": null,
+        "version": "0.1.0"
     },
-
-    "Eagle": {
-        "id": ""
+    "settings": {
+        "auto_arm": false,
     }
 }

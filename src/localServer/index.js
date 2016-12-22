@@ -36,7 +36,7 @@ server.get("/reboot", (req, res)=>{
 /**
  * Get installation
  */
-server.get("/installation", (req, res)=>{
+server.get("/configuration", (req, res)=>{
     fs.readFile(eagle_configuration, "utf8", function (err, data) {
         if (err) {
             res.json({status:"failed to load eagle configuration file"});
@@ -59,8 +59,7 @@ server.post("/install", (req, res)=>{
         configuration = JSON.parse(data);
     });
 
-    configuration.firebase.user = req.body.user;
-    configuration.firebase.pwd = req.body.pwd;
+    configuration.eagle.id = req.body.eagle_id;
 
     fs.writeFile(eagle_configuration, JSON.stringify(configuration), function(err) {
         if(err) {
