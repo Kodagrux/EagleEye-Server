@@ -18,13 +18,9 @@
             "warn",
             "unix"
         ],
-        "quotes": [
-            "warn",
-            "double"
-        ],
         "semi": [
             "error",
-            "always"
+            "never"
         ],
         "no-unused-vars": [
             "warn", { "vars": "all", "args": "after-used" }
