@@ -1,21 +1,38 @@
 
 
-export const createNewEagle = (req, arg, res)=>{
-    res.send(null)
+export const getEagle = (req, res)=>{
+
+    const testEagle = {
+        name: 'Eagle Namn',
+        status: 'Armed',
+        position: 'Hallen',
+        description: 'En beskrivning om denna örnen'
+    }
+
+    res.json(testEagle)
 }
 
-export const updateEagle = (req, arg, res)=>{
-    res.send(null)
+export const createNewEagle = (req, res)=>{
+
+    const newEagle = {
+        uuid: req.body.uuid,
+        name: req.body.name?req.body.name:'My Eagle',
+        email: req.body.email,
+        status: 'disarmed',
+        events: [],
+        description: req.body.description?req.body.description:'',
+        position: req.body.position?req.body.position:'',
+    }
+
+    res.json(newEagle)
 }
 
-export const deleteEagle = (req, arg, res)=>{
-    res.send(null)
+export const updateEagle = (req, res)=>{
+    console.log(req.body)
+    res.json(req.body)
 }
 
-export const newEvent = (req, arg, res)=>{
-
-    // Save event to database and connect to correct eagle
-    // send a message to user via fb messenger bot
-
-    res.send(null)
+export const deleteEagle = (req, res)=>{
+    console.log(req.body)
+    res.json(req.body)
 }
