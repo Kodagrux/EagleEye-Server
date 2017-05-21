@@ -6,4 +6,4 @@
 import app from './routes'
 
 // Start server
-app.listen(8888, '172.20.10.7')
+app.listen(8888, 'localhost')
